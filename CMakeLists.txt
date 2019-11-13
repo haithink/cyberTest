@@ -30,12 +30,14 @@ include_directories(${PROJECT_BINARY_DIR}/proto)
 #link_directories(./lib)
 
 set(EXTRA_LIBS
-    glog
-    gflags
-bst_image_proto
-    protobuf
-    cyber
-    )
+cyber 
+cyber_proto 
+fastrtps
+glog
+protobuf 
+bst_image_proto 
+gflags
+)
 
 #include_directories(
 #/usr/local/include/eigen3
@@ -43,8 +45,10 @@ bst_image_proto
 #) 
 
 add_executable(test  ./src/main.cpp )
+add_executable(listenerTest ./src/listener.cpp)
 
 #target_link_libraries(test  ${EXTRA_LIBS} ${PROJECT_SOURCE_DIR}/lib/libbst_image_proto.so)
 #target_link_libraries(test  cyber bst_image_proto glog gflags protobuf )
 target_link_libraries(test cyber cyber_proto fastrtps glog protobuf bst_image_proto gflags)
+target_link_libraries(listenerTest ${EXTRA_LIBS})
 
