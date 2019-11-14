@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
     msg->set_lidar_timestamp(Time::Now().ToNanosecond());
     msg->set_seq(seq++);
     msg->set_content("Hello, apollo!");
-    //talker->Write(msg);
+    talker->Write(msg);
     AINFO << "talker sent a message!";
     rate.Sleep();
   }
